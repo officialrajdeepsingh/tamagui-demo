@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+// const nextConfig: NextConfig = {
+//   transpilePackages: ["tamagui", "@tamagui/*"],
+// };
+//nextConfig;
 
-export default nextConfig;
+import { withTamagui } from "@tamagui/next-plugin";
+
+export default withTamagui({
+  config: "./tamagui.config.ts",
+  components: ["tamagui"],
+})(
+  /* your nextConfig */ {
+    transpilePackages: ["tamagui"],
+  },
+);
